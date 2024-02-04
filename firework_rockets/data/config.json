@@ -1,11 +1,79 @@
 {
-    "fg:celebrate": {
+    "custom:instant_red": {
+        "power": 0,
+        "color": [
+            "red",
+            "orange",
+            "yellow"
+        ]
+    },
+    "custom:red": {
         "power": [1, 1.25],
-        "random_weight": 0,
+        "trail": true,
+        "color": [
+            "red",
+            "orange",
+            "yellow"
+        ]
+    },
+    "custom:instant_green": {
+        "power": 0,
         "color": [
             "green",
             "lime",
             "yellow"
         ]
+    },
+    "custom:green": {
+        "power": [1, 1.25],
+        "trail": true,
+        "color": [
+            "green",
+            "lime",
+            "yellow"
+        ]
+    },
+    "custom:instant_blue": {
+        "power": 0,
+        "color": [
+            "blue",
+            "cyan",
+            "light_blue"
+        ]
+    },
+    "custom:blue": {
+        "power": [1, 1.25],
+        "trail": true,
+        "color": [
+            "blue",
+            "cyan",
+            "light_blue"
+        ]
+    },
+    "custom:instant_purple": {
+        "power": 0,
+        "color": [
+            "purple",
+            "magenta",
+            "pink"
+        ]
+    },
+    "custom:purple": {
+        "power": [1, 1.25],
+        "trail": true,
+        "color": [
+            "purple",
+            "magenta",
+            "pink"
+        ]
+    },
+    "custom:instant_gray": {
+        "power": 0,
+        "color": [
+            "black",
+            "gray",
+            "light_gray"
+        ],
+        "fade": "white"
     }
 }
