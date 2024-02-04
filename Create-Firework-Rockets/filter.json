@@ -1,0 +1,11 @@
+{
+    "filters": [
+        {
+            "runWith": "nodejs",
+            "script": "./dist/index.js",
+            "name": "Create Firework Rockets",
+            "description": "filter desc",
+            "requirements": "./"
+        }
+    ]
+}
