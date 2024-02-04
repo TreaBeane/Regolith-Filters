@@ -1,0 +1,11 @@
+{
+    "fg:celebrate": {
+        "power": [1, 1.25],
+        "random_weight": 0,
+        "color": [
+            "green",
+            "lime",
+            "yellow"
+        ]
+    }
+}
