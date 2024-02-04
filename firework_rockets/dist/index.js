@@ -49,7 +49,7 @@ function run() {
                     return [4 /*yield*/, Promise.resolve().then(function () { return require('../assets/fireworks_rocket.animation_controller.json'); })];
                 case 2:
                     animation_controller = _b.sent();
-                    config = JSON.parse(fs.readFileSync('data/create_fireworks_rocket/config.json', 'utf-8'));
+                    config = JSON.parse(fs.readFileSync('data/firework_rockets/config.json', 'utf-8'));
                     firework_keys = Object.keys(config);
                     i = 0;
                     _b.label = 3;

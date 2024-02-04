@@ -6,7 +6,7 @@ async function run() {
 	const animation_controller = await import('./assets/fireworks_rocket.animation_controller.json');
 
 	/*----------------         Parse Config       ----------------*/
-	const config = JSON.parse(fs.readFileSync('data/create_fireworks_rocket/config.json', 'utf-8'));
+	const config = JSON.parse(fs.readFileSync('data/firework_rockets/config.json', 'utf-8'));
 	const firework_keys = Object.keys(config);
 	for (let i = 0; i < firework_keys.length; i++) {
 		const key = firework_keys[i];
