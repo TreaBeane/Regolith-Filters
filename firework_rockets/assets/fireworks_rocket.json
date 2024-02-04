@@ -34,19 +34,19 @@
             }
         },
         "component_groups": {
-            "fg:detonate": {
+            "custom:detonate": {
                 "minecraft:is_baby": {}
             }
         },
         "events": {
-            "fg:detonate": {
+            "custom:detonate": {
                 "add": {
                     "component_groups": [
-                        "fg:detonate"
+                        "custom:detonate"
                     ]
                 }
             },
-            "fg:random": {
+            "custom:random": {
                 "randomize": [
                 ]
             }

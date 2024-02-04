@@ -26,7 +26,7 @@ async function run() {
 				"time": time,
 				"looping": false,
 				"time_down_event": {
-					"event": "fg:detonate"
+					"event": "custom:detonate"
 				}
 			},
 			"minecraft:variant": {
@@ -43,7 +43,7 @@ async function run() {
 		};
 
 		if ((value.random_weight === undefined ? 1 : value.random_weight) !== 0){
-			(entity['minecraft:entity'].events['fg:random'].randomize as {}[]).push(
+			(entity['minecraft:entity'].events['custom:random'].randomize as {}[]).push(
 				{
 					"trigger": key,
 					"weight": (value.random_weight === undefined ? 1 : value.random_weight)
