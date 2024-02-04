@@ -3,7 +3,7 @@
         {
             "runWith": "nodejs",
             "script": "./dist/index.js",
-            "name": "Create Firework Rockets",
+            "name": "Firework Rockets",
             "description": "filter desc",
             "requirements": "./"
         }
