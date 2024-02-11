@@ -3,9 +3,9 @@ import { glob } from 'glob';
 import * as textures from 'minecraft-textures/dist/textures/json/1.20.id.json'
 
 const items = {...textures.items} as any
-const textureData = JSON.parse(
+const textureData = existsSync('RP/textures/item_texture.json') ? JSON.parse(
     readFileSync("RP/textures/item_texture.json", "utf-8")
-)['texture_data'];
+)['texture_data'] : {};
 
 // Load custom entity spawn egg textures
 glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
@@ -29,14 +29,17 @@ glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
 });
 
 // Load custom textures
-let customTextures = readdirSync("RP/textures/items/")
-for (let i = 0; i < customTextures.length; i++) {
-    let customTexture = customTextures[i]
-    let parsedName = "minecraft:" + customTexture.replace(".png", "")
 
-    if (items[parsedName]) {
-        let newTexture = readFileSync("RP/textures/items/" + customTexture)
-        items[parsedName].texture = newTexture
+if (existsSync('RP/textures/items/')) {
+    let customTextures = readdirSync("RP/textures/items/")
+    for (let i = 0; i < customTextures.length; i++) {
+        let customTexture = customTextures[i]
+        let parsedName = "minecraft:" + customTexture.replace(".png", "")
+    
+        if (items[parsedName]) {
+            let newTexture = readFileSync("RP/textures/items/" + customTexture)
+            items[parsedName].texture = newTexture
+        }
     }
 }
 
@@ -262,7 +265,12 @@ export const typeIdTextureMap = new Map<string, (string | string[])>([
     ['minecraft:brick_block', items['minecraft:bricks'].texture]
 ])
 
-export function getItemTexture(key: { item: string; data?: number }) {
+export function getItemTexture(key: { item: string; data: number }) {
+
+    if (typeof(key) === 'string') {
+        key = parseItemFromString(key)
+    }
+
     let itemName = key.item.includes(':') ? key.item : `minecraft:${key.item}`;
 
     // Handle spawn egg textures
@@ -276,7 +284,9 @@ export function getItemTexture(key: { item: string; data?: number }) {
     }
 
     // Default texture lookup
+    console.log('0', itemName)
     if (items[itemName]) {
+        console.log('1', itemName)
         return items[itemName].texture;
     }
 
@@ -306,21 +316,54 @@ function handleSpecialCaseTexture(itemName: string, data?: number): string {
 }
 
 function findTextureInFiles(itemName: string): string | undefined {
-    let resultIcon: string | undefined;
-    glob.sync("RP/textures/**/*.json").forEach((itemPath) => {
-        const item = JSON.parse(readFileSync(itemPath, "utf-8"));
-        if (item["minecraft:item"].description.identifier === itemName) {
-            resultIcon = item["minecraft:item"].components["minecraft:icon"];
-        }
-    });
+    if (existsSync('RP/textures/item_texture.json')){
+        let resultIcon: string | undefined;
+        glob.sync("RP/textures/**/*.json").forEach((itemPath) => {
+            const item = JSON.parse(readFileSync(itemPath, "utf-8"));
+            if (item["minecraft:item"].description.identifier === itemName) {
+                resultIcon = item["minecraft:item"].components["minecraft:icon"];
+            }
+        });
+    
+        if (resultIcon) {
+            const itemTextures = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"));
+            const texturePath = `RP/${itemTextures.texture_data[resultIcon].textures}.png`;
+            if (existsSync(texturePath)) {
+                return readFileSync(texturePath).toString(); // Assuming texture needs to be returned as string
+            }
+        }}
+    // Return an invalid texture image as a fallback
+    return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAChJREFUCJltyqENACAMALAORRD8fydimRueUN3IXQ3rTDA8Ag256z8uTGEHATZy6pcAAAAASUVORK5CYII=";
+}
 
-    if (resultIcon) {
-        const itemTextures = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"));
-        const texturePath = `RP/${itemTextures.texture_data[resultIcon].textures}.png`;
-        if (existsSync(texturePath)) {
-            return readFileSync(texturePath).toString(); // Assuming texture needs to be returned as string
+function parseItemFromString(input: string) {
+    // Split the input string by ':'
+    const parts = input.split(':');
+
+    // Initialize default values for the 'key' and 'data'
+    let key = '';
+    let data = 0;
+
+    // Determine the structure of the input and assign the 'key' and 'data' accordingly
+    if (parts.length === 1) {
+        // Only item name is provided, default namespace to 'minecraft'
+        key = `minecraft:${parts[0]}`;
+    } else if (parts.length === 2) {
+        // Either namespace and item name are provided without data, or only item name and data are provided
+        if (isNaN(parseInt(parts[1], 10))) {
+            // It's not a number, so it's a namespace and item name
+            key = input;
+        } else {
+            // It's a number, so it's an item name and data with the default namespace
+            key = `minecraft:${parts[0]}`;
+            data = parseInt(parts[1], 10);
         }
-        // Return an invalid texture image as a fallback
-        return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAChJREFUCJltyqENACAMALAORRD8fydimRueUN3IXQ3rTDA8Ag256z8uTGEHATZy6pcAAAAASUVORK5CYII=";
+    } else if (parts.length === 3) {
+        // Namespace, item name, and data are provided
+        key = `${parts[0]}:${parts[1]}`;
+        data = parseInt(parts[2], 10);
     }
+
+    // Return the parsed object
+    return { item: key, data: data };
 }

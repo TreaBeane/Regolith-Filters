@@ -1,8 +1,8 @@
 {
-    "custom:example": {
-        "output": [
-            "RP/textures/recipe_images/example"
-        ],
-        "recipe": "example.r.json"
-    }
+    // "custom:example": {
+    //     "output": [
+    //         "RP/textures/recipe_images/example"
+    //     ],
+    //     "recipe": "example.r.json"
+    // }
 }

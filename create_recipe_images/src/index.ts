@@ -1,8 +1,9 @@
 import * as Canvas from 'canvas';
 import * as JSON from 'comment-json';
-import { readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { getItemTexture } from './texture_map';
 import { FURNACE_IMAGE, RECIPE_BOARD_IMAGE, SMITHING_TABLE_IMAGE } from './constants';
+import { resolve } from 'path';
 
 async function run() {
     const config = JSON.parse(readFileSync('data/create_recipe_images/config.json', 'utf-8')) as any;
@@ -72,8 +73,7 @@ async function run() {
             }
 
             console.log('   > Writing to: ' + out);
-
-            writeFileSync(out, buffer);
+            writeFileSyncRecursive(out, buffer)
         });
     }
 
@@ -113,12 +113,11 @@ async function run() {
             }
 
             console.log('   > Writing to: ' + out);
-
-            writeFileSync(out, buffer);
+            writeFileSyncRecursive(out, buffer)
         });
     }
 
-    function drawShapedRecipe(recipeData: recipeData, recipe: any) {
+    async function drawShapedRecipe(recipeData: recipeData, recipe: any) {
         const shapedRecipe: shapedRecipe = recipe['minecraft:recipe_shaped'];
 
         let recipeImage = new Canvas.Image();
@@ -134,36 +133,78 @@ async function run() {
             offY = 38;
         }
 
-        shapedRecipe.pattern.forEach(row => {
-            const column: string[] = row.split('');
-            if (column.length !== 3) {
-                offX = 38;
-            }
-            for (let i = 0; i < column.length; i++) {
-                let key = (shapedRecipe.key as any)[`${column[i]}`];
-                let keyImage = new Canvas.Image();
-                keyImage.onload = function () {
-                    ctx.imageSmoothingEnabled = false
-                    ctx.drawImage(keyImage, offX, offY, 32, 32)
+        async function drawKeys(ctx: any) {
+            shapedRecipe.pattern.forEach(row => {
+                const column: string[] = row.split('');
+                if (column.length !== 3) {
+                    offX = 38;
                 }
-                keyImage.src = key;
-                offX += 36;
-            }
-            offX = 2;
-            offY += 36;
-        });
+                for (let i = 0; i < column.length; i++) {
+                    new Promise((resolve: any, reject: any) => {
+                        let key = (shapedRecipe.key as any)[`${column[i]}`];
+                        let keyImage = new Canvas.Image();
+                        console.log('a')
+                        keyImage.onload = function () {
+                            ctx.imageSmoothingEnabled = false
+                            ctx.drawImage(keyImage, offX, offY, 32, 32)
+                            resolve()
+                        }
+                        keyImage.src = getItemTexture(key);
+                        keyImage.onerror = reject;
+                    })
+                    offX += 36;
+                }
+                offX = 2;
+                offY += 36;
+            });
+        }
 
+        await drawKeys(ctx)
         const buffer = canvas.toBuffer();
         recipeData.output.forEach(out => {
             if (!out.includes('.png')) {
                 out += '.png'
             }
             console.log('   > Writing to: ' + out);
-            writeFileSync(out, buffer);
+
+            writeFileSyncRecursive(out, buffer)
         });
         console.log()
     }
 }
+
+function writeFileSyncRecursive(filename: string, content: any) {
+    // -- normalize path separator to '/' instead of path.sep, 
+    // -- as / works in node for Windows as well, and mixed \\ and / can appear in the path
+    let filepath = filename.replace(/\\/g,'/');  
+  
+    // -- preparation to allow absolute paths as well
+    let root = '';
+    if (filepath[0] === '/') { 
+      root = '/'; 
+      filepath = filepath.slice(1);
+    } 
+    else if (filepath[1] === ':') { 
+      root = filepath.slice(0,3);   // c:\
+      filepath = filepath.slice(3); 
+    }
+  
+    // -- create folders all the way down
+    const folders = filepath.split('/').slice(0, -1);  // remove last item, file
+    folders.reduce(
+      (acc, folder) => {
+        const folderPath = acc + folder + '/';
+        if (!existsSync(folderPath)) {
+          mkdirSync(folderPath);
+        }
+        return folderPath
+      },
+      root // first 'acc', important
+    ); 
+    
+    // -- write file
+    writeFileSync(root + filepath, content);
+  }
 
 type smithingRecipe = {
     description: {
