@@ -1,0 +1,85 @@
+{
+    "bp_entity": {
+        "format_version": "1.17.0",
+        "minecraft:entity": {
+            "description": {
+                "identifier": "custom:hologram",
+                "is_spawnable": false,
+                "is_summonable": true,
+                "runtime_identifier": "minecraft:snowball"
+            },
+            "component_groups": {
+                "custom:despawn": {
+                    "minecraft:instant_despawn": {
+                        "remove_child_entities": false
+                    }
+                }
+            },
+            "components": {
+                "minecraft:type_family": {
+                    "family": ["hologram"]
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "all",
+                            "deals_damage": false
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "custom:despawn": {
+                    "add": {
+                        "component_groups": ["custom:despawn"]
+                    }
+                }
+            }
+        }
+    },
+    "rp_entity": {
+        "format_version": "1.10.0",
+        "minecraft:client_entity": {
+            "description": {
+                "identifier": "custom:hologram",
+                "materials": {
+                    "default": "entity_alphablend"
+                },
+                "textures": {},
+                "geometry": {},
+                "animations": {
+                    "billboard": "animation.hologram.billboard"
+                },
+                "scripts": {
+                    "animate": ["billboard"]
+                },
+                "render_controllers": []
+            }
+        }
+    },
+    "render_controller": {
+        "geometry": "geometry.$identifier$",
+        "materials": [{ "*": "material.default" }],
+        "textures": ["texture.$identifier$"],
+        "filter_lighting": true,
+        "ignore_lighting": true,
+        "light_color_multiplier": 1
+    },
+    "animations": {
+        "format_version": "1.8.0",
+        "animations": {
+            "animation.hologram.billboard": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            "-query.camera_rotation(0)",
+                            "query.camera_rotation(1) + 180",
+                            0.0
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
