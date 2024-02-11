@@ -2,7 +2,7 @@ import * as Canvas from 'canvas';
 import * as JSON from 'comment-json';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { getItemTexture } from './texture_map';
-import { FURNACE_IMAGE, RECIPE_BOARD_IMAGE, SMITHING_TABLE_IMAGE } from './constants';
+import { FURNACE_IMAGE, RECIPE_GRID_IMAGE, SMITHING_TABLE_IMAGE } from './constants';
 import { resolve } from 'path';
 
 async function run() {
@@ -121,7 +121,7 @@ async function run() {
         const shapedRecipe: shapedRecipe = recipe['minecraft:recipe_shaped'];
 
         let recipeImage = new Canvas.Image();
-        recipeImage.src = RECIPE_BOARD_IMAGE;
+        recipeImage.src = RECIPE_GRID_IMAGE;
         var canvas = new Canvas.Canvas(recipeImage.width, recipeImage.height);
         var ctx = canvas.getContext('2d');
         ctx.drawImage(recipeImage, 0, 0);

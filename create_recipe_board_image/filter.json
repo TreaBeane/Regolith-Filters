@@ -2,10 +2,8 @@
     "filters": [
         {
             "runWith": "nodejs",
-            "script": "./dist/index.js",
-            "name": "Firework Rockets",
-            "description": "filter desc",
-            "requirements": "./"
+            "script": "./dist/index.cjs",
+            "name": "Create Recipe Images"
         }
     ]
 }
