@@ -3,9 +3,7 @@
         {
             "runWith": "nodejs",
             "script": "./dist/index.js",
-            "name": "Firework Rockets",
-            "description": "filter desc",
-            "requirements": "./"
+            "name": "Create Recipe Images"
         }
     ]
 }
