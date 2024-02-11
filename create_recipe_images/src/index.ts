@@ -1,8 +1,8 @@
 import * as Canvas from 'canvas';
 import * as JSON from 'comment-json';
 import { readFileSync, writeFileSync } from 'fs';
-import { getItemTexture } from './texture_map';
-import { FURNACE_IMAGE, RECIPE_BOARD_IMAGE, SMITHING_TABLE_IMAGE } from './constants';
+import { getItemTexture } from './texture_map.js';
+import { FURNACE_IMAGE, RECIPE_BOARD_IMAGE, SMITHING_TABLE_IMAGE } from './constants.js';
 
 async function run() {
     const config = JSON.parse(readFileSync('data/create_recipe_images/config.json', 'utf-8')) as any;

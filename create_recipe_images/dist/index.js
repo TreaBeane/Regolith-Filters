@@ -26,8 +26,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Canvas = __importStar(require("canvas"));
 const JSON = __importStar(require("comment-json"));
 const fs_1 = require("fs");
-const texture_map_1 = require("./texture_map");
-const constants_1 = require("./constants");
+const texture_map_js_1 = require("./texture_map.js");
+const constants_js_1 = require("./constants.js");
 async function run() {
     const config = JSON.parse((0, fs_1.readFileSync)('data/create_recipe_images/config.json', 'utf-8'));
     const configKeys = Object.keys(config);
@@ -51,14 +51,14 @@ async function run() {
     }
     function drawFurnaceRecipe(recipeData, recipe) {
         const furnace = recipe['minecraft:recipe_furnace'];
-        const coalImage = (0, texture_map_1.getItemTexture)({ item: 'minecraft:coal', data: 0 });
+        const coalImage = (0, texture_map_js_1.getItemTexture)({ item: 'minecraft:coal', data: 0 });
         const keys = new Map();
         let input = furnace.input;
         let output = furnace.output;
-        keys.set(input, (0, texture_map_1.getItemTexture)({ item: input, data: 0 }));
-        keys.set(output, (0, texture_map_1.getItemTexture)({ item: output, data: 0 }));
+        keys.set(input, (0, texture_map_js_1.getItemTexture)({ item: input, data: 0 }));
+        keys.set(output, (0, texture_map_js_1.getItemTexture)({ item: output, data: 0 }));
         let recipeImage = new Canvas.Image();
-        recipeImage.src = constants_1.FURNACE_IMAGE;
+        recipeImage.src = constants_js_1.FURNACE_IMAGE;
         var canvas = new Canvas.Canvas(recipeImage.width, recipeImage.height);
         var ctx = canvas.getContext('2d');
         ctx.drawImage(recipeImage, 0, 0);
@@ -94,10 +94,10 @@ async function run() {
         const keys = new Map();
         let convert = smithing.ingredients[0];
         let currency = smithing.ingredients[1];
-        keys.set(convert.item, (0, texture_map_1.getItemTexture)(convert));
-        keys.set(currency.item, (0, texture_map_1.getItemTexture)(currency));
+        keys.set(convert.item, (0, texture_map_js_1.getItemTexture)(convert));
+        keys.set(currency.item, (0, texture_map_js_1.getItemTexture)(currency));
         let recipeImage = new Canvas.Image();
-        recipeImage.src = constants_1.SMITHING_TABLE_IMAGE;
+        recipeImage.src = constants_js_1.SMITHING_TABLE_IMAGE;
         var canvas = new Canvas.Canvas(recipeImage.width, recipeImage.height);
         var ctx = canvas.getContext('2d');
         ctx.drawImage(recipeImage, 0, 0);
@@ -125,7 +125,7 @@ async function run() {
     function drawShapedRecipe(recipeData, recipe) {
         const shapedRecipe = recipe['minecraft:recipe_shaped'];
         let recipeImage = new Canvas.Image();
-        recipeImage.src = constants_1.RECIPE_BOARD_IMAGE;
+        recipeImage.src = constants_js_1.RECIPE_BOARD_IMAGE;
         var canvas = new Canvas.Canvas(recipeImage.width, recipeImage.height);
         var ctx = canvas.getContext('2d');
         ctx.drawImage(recipeImage, 0, 0);
