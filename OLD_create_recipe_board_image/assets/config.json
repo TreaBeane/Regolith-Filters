@@ -1,6 +1,0 @@
-{
-    "cc:example" : {
-      "output" : [ "data/create_recipe_board_image/example" ],
-      "recipe" : "example.recipe.json"
-    }
-}
