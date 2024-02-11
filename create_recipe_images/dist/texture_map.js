@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'fs';
 import { glob } from 'glob';
 const version = '1.20';
-const textures = { ...await import(`minecraft-textures/dist/textures/json/${version}.json`) };
+const textures = { ...await import(`minecraft-textures/dist/textures/json/${version}.id.json`) }.items;
 const textureData = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"))['texture_data'];
 // Load custom entity spawn egg textures
 glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
