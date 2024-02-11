@@ -1,9 +1,0 @@
-{
-    "filters": [
-        {
-            "runWith": "nodejs",
-            "script": "./dist/index.js",
-            "name": "Create Recipe Images"
-        }
-    ]
-}
