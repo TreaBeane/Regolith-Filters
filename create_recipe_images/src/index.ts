@@ -4,9 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { getItemTexture } from './texture_map';
 import { FURNACE_IMAGE, RECIPE_BOARD_IMAGE, SMITHING_TABLE_IMAGE } from './constants';
 
-// Our 3x3 recipe board encoded in base64
 async function run() {
-    // Read config
     const config = JSON.parse(readFileSync('data/create_recipe_images/config.json', 'utf-8')) as any;
     const configKeys = Object.keys(config);
 
