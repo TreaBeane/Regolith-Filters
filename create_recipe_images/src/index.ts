@@ -143,7 +143,6 @@ async function run() {
                     new Promise((resolve: any, reject: any) => {
                         let key = (shapedRecipe.key as any)[`${column[i]}`];
                         let keyImage = new Canvas.Image();
-                        console.log('a')
                         keyImage.onload = function () {
                             ctx.imageSmoothingEnabled = false
                             ctx.drawImage(keyImage, offX, offY, 32, 32)

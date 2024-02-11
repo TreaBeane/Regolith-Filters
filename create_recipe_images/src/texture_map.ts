@@ -284,9 +284,7 @@ export function getItemTexture(key: { item: string; data: number }) {
     }
 
     // Default texture lookup
-    console.log('0', itemName)
     if (items[itemName]) {
-        console.log('1', itemName)
         return items[itemName].texture;
     }
 
