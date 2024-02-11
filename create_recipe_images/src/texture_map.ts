@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'fs';
 import { glob } from 'glob';
-import textures from 'minecraft-textures/dist/textures/json/1.20.id.json'
+import * as textures from 'minecraft-textures/dist/textures/json/1.20.id.json'
 
 const items = {...textures.items} as any
 const textureData = JSON.parse(
