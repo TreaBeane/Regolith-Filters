@@ -1,0 +1,247 @@
+{
+    "bp_entity": {
+        "format_version": "1.17.0",
+        "minecraft:entity": {
+            "description": {
+                "identifier": "fg:hologram",
+                "is_spawnable": false,
+                "is_summonable": true,
+                "runtime_identifier": "minecraft:snowball"
+            },
+            "component_groups": {
+                "fg:despawn": {
+                    "minecraft:instant_despawn": {
+                        "remove_child_entities": false
+                    }
+                },
+                "fg:clear": {
+                    "minecraft:variant": {
+                        "value": 0
+                    }
+                },
+                "fg:recipe_display": {
+                    "minecraft:scale": {
+                        "value": 3
+                    }
+                },
+                "fg:small": {
+                    "minecraft:scale": {
+                        "value": 0.8
+                    }
+                },
+                "fg:has_holo": {
+                    "minecraft:environment_sensor": {
+                        "triggers": [
+                            {
+                                "event": "fg:despawn",
+                                "target": "self",
+                                "filters": {
+                                    "test": "is_riding",
+                                    "subject": "self",
+                                    "value": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                "fg:locked_0": {
+                    "minecraft:skin_id": {
+                        "value": 1
+                    }
+                },
+                "fg:locked_90": {
+                    "minecraft:skin_id": {
+                        "value": 2
+                    }
+                },
+                "fg:locked_180": {
+                    "minecraft:skin_id": {
+                        "value": 3
+                    }
+                },
+                "fg:locked_270": {
+                    "minecraft:skin_id": {
+                        "value": 4
+                    }
+                }
+            },
+            "components": {
+                "minecraft:type_family": {
+                    "family": ["hologram"]
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "all",
+                            "deals_damage": false
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "fg:despawn": {
+                    "add": {
+                        "component_groups": ["fg:despawn"]
+                    }
+                },
+                "fg:clear": {
+                    "add": {
+                        "component_groups": ["fg:clear"]
+                    }
+                },
+                "fg:recipe_display": {
+                    "add": {
+                        "component_groups": ["fg:recipe_display"]
+                    }
+                },
+                "fg:small": {
+                    "add": {
+                        "component_groups": ["fg:small"]
+                    }
+                },
+                "fg:has_holo": {
+                    "add": {
+                        "component_groups": ["fg:has_holo"]
+                    }
+                },
+                "fg:locked_0": {
+                    "add": {
+                        "component_groups": ["fg:locked_0"]
+                    }
+                },
+                "fg:locked_90": {
+                    "add": {
+                        "component_groups": ["fg:locked_90"]
+                    }
+                },
+                "fg:locked_180": {
+                    "add": {
+                        "component_groups": ["fg:locked_180"]
+                    }
+                },
+                "fg:locked_270": {
+                    "add": {
+                        "component_groups": ["fg:locked_270"]
+                    }
+                }
+            }
+        }
+    },
+    "rp_entity": {
+        "format_version": "1.10.0",
+        "minecraft:client_entity": {
+            "description": {
+                "identifier": "fg:hologram",
+                "materials": {
+                    "default": "slime_outer"
+                },
+                "textures": {},
+                "geometry": {},
+                "animations": {
+                    "billboard": "animation.hologram.billboard",
+                    "locked.0": "animation.hologram.0",
+                    "locked.90": "animation.hologram.90",
+                    "locked.180": "animation.hologram.180",
+                    "locked.270": "animation.hologram.270"
+                },
+                "scripts": {
+                    "animate": [
+                        {
+                            "billboard": "q.skin_id == 0"
+                        },
+                        {
+                            "locked.0": "q.skin_id == 1"
+                        },
+                        {
+                            "locked.90": "q.skin_id == 2"
+                        },
+                        {
+                            "locked.180": "q.skin_id == 3"
+                        },
+                        {
+                            "locked.270": "q.skin_id == 4"
+                        }
+                    ]
+                },
+                "render_controllers": []
+            }
+        }
+    },
+    "render_controller": {
+        "geometry": "geometry.$identifier$",
+        "materials": [
+            {
+                "*": "material.default"
+            }
+        ],
+        "textures": ["texture.$identifier$"],
+        "filter_lighting": true,
+        "ignore_lighting": true,
+        "light_color_multiplier": 1
+    },
+    "animations": {
+        "format_version": "1.8.0",
+        "animations": {
+            "animation.hologram.billboard": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            "-query.camera_rotation(0)",
+                            "query.camera_rotation(1) + 180",
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "animation.hologram.0": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            "animation.hologram.90": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            "animation.hologram.180": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            "animation.hologram.270": {
+                "loop": true,
+                "bones": {
+                    "root": {
+                        "rotation": [
+                            0,
+                            270,
+                            0
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

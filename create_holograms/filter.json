@@ -2,8 +2,8 @@
     "filters": [
         {
             "runWith": "nodejs",
-            "script": "./index.js",
-            "name": "Create Holograms"
+            "script": "./dist/index.cjs",
+            "name": "Create Recipe Images"
         }
     ]
 }

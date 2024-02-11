@@ -1,0 +1,7 @@
+{
+    "custom:hello_world": {
+        "text": "Hello, world!",
+        "variant": 286324,
+        "texture": "iVBORw0KGgoAAAANSUhEUgAAALMAAAAjCAYAAADfcjuwAAABpUlEQVR4Ae3BQa4bRxAFwcwG78U6eulkz5teENZIY1r0t9SoCPnekzH+DN94sRjjEIsxDrEY4xACT8Y4wGKMQzz4myTNphY3kjSbWnxYkmZTiwtJmk0txpdK0mxq8QFJmk0ttiTNphYvFmMcYjHGIRZjHGIxxiEWYxziwU8kaT4gSXNDLb5IkuaGWnxYkmZTixtJmk0tLiRpbqjFhSTNphZbkuaCWnxAkuaCWvyCxRiHWIxxiAc/oRY3kjQXkjSbWtxI0mxq8WFJmk0tbiRpNrX4jSRpNrW4kaTZ1OJCkmZTiwtJmk0t3pCk2dTiQpLmFyzGOMRijEM8+AJJmvFDSZpNLf4HanFDLf5DarElad60GOMQizEO8eALqMUYH6AWP7AY4xCLMQ4h8ORFkmZTixtJmk0tLiRp3qAWF5I0m1pcSNJsanEhSXNDLS4kaTa1+JeSNG9QiwtJmhtqcSFJs6nFByRpNrW4kKR5g1psSZpNLV4sxjjEYoxDCDwZ/1iSZlOL8dtYjHGIxRiHEHgyxgHke0/G+DN848VijEMsxjjEYoxD/AU1D7OKCoThogAAAABJRU5ErkJggg=="
+    }
+}
