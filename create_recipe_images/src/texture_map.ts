@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'fs';
 import { glob } from 'glob';
 
 const version = '1.20';
-const textures = {...await import(`minecraft-textures/dist/textures/json/${version}.id.json`)};
+const textures = {...await import(`minecraft-textures/dist/textures/json/${version}.json`)};
 
 const textureData = JSON.parse(
     readFileSync("RP/textures/item_texture.json", "utf-8")
