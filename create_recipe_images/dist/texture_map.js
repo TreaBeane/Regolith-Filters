@@ -1,38 +1,11 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getItemTexture = exports.typeIdTextureMap = void 0;
-const fs_1 = require("fs");
-const glob_1 = require("glob");
+import { existsSync, readFileSync, readdirSync } from 'fs';
+import { glob } from 'glob';
 const version = '1.20';
-const textures = { ...Promise.resolve(`${`minecraft-textures/dist/textures/json/${version}.id.json`}`).then(s => __importStar(require(s))) };
-const textureData = JSON.parse((0, fs_1.readFileSync)("RP/textures/item_texture.json", "utf-8"))['texture_data'];
+const textures = { ...await import(`minecraft-textures/dist/textures/json/${version}.json`) };
+const textureData = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"))['texture_data'];
 // Load custom entity spawn egg textures
-glob_1.glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
-    var _a;
-    const entity = (_a = JSON.parse((0, fs_1.readFileSync)(itemPath, "utf-8"))) !== null && _a !== void 0 ? _a : {};
+glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
+    const entity = JSON.parse(readFileSync(itemPath, "utf-8")) ?? {};
     if (!('minecraft:client_entity' in entity))
         return;
     const desc = entity['minecraft:client_entity']['description'];
@@ -43,22 +16,22 @@ glob_1.glob.sync("RP/entity/**/*.json").forEach((itemPath) => {
     let textureIndex = desc['spawn_egg']['texture_index'];
     if (textureData[texture]) {
         const texturePath = "RP/" + textureData[texture].textures + ".png";
-        let spawnEggTexture = (0, fs_1.readFileSync)(texturePath);
+        let spawnEggTexture = readFileSync(texturePath);
         textures[identifier] = { texture: spawnEggTexture };
         console.log("found entity " + identifier + " with textureIcon " + texture + " and index " + textureIndex);
     }
 });
 // Load custom textures
-let customTextures = (0, fs_1.readdirSync)("RP/textures/items/");
+let customTextures = readdirSync("RP/textures/items/");
 for (let i = 0; i < customTextures.length; i++) {
     let customTexture = customTextures[i];
     let parsedName = "minecraft:" + customTexture.replace(".png", "");
     if (textures[parsedName]) {
-        let newTexture = (0, fs_1.readFileSync)("RP/textures/items/" + customTexture);
+        let newTexture = readFileSync("RP/textures/items/" + customTexture);
         textures[parsedName].texture = newTexture;
     }
 }
-exports.typeIdTextureMap = new Map([
+export const typeIdTextureMap = new Map([
     ['minecraft:wool', [
             textures['minecraft:white_wool'].texture,
             textures['minecraft:orange_wool'].texture,
@@ -279,14 +252,14 @@ exports.typeIdTextureMap = new Map([
     ['minecraft:yellow_flower', textures['minecraft:dandelion'].texture],
     ['minecraft:brick_block', textures['minecraft:bricks'].texture]
 ]);
-function getItemTexture(key) {
+export function getItemTexture(key) {
     let itemName = key.item.includes(':') ? key.item : `minecraft:${key.item}`;
     // Handle spawn egg textures
     if (itemName.includes("spawn_egg")) {
         return handleSpawnEggTexture(itemName, key.data);
     }
     // Handle special cases with multiple possible textures
-    if (exports.typeIdTextureMap.has(itemName)) {
+    if (typeIdTextureMap.has(itemName)) {
         return handleSpecialCaseTexture(itemName, key.data);
     }
     // Default texture lookup
@@ -297,7 +270,6 @@ function getItemTexture(key) {
     const texture = findTextureInFiles(itemName);
     return texture || textures['minecraft:stone'].texture; // Fallback to stone texture
 }
-exports.getItemTexture = getItemTexture;
 function handleSpawnEggTexture(itemName, data) {
     const entityName = data ? data.match("'(.*?)'")[1] : itemName.replace('_spawn_egg', '');
     if (textures[entityName]) {
@@ -309,7 +281,7 @@ function handleSpawnEggTexture(itemName, data) {
     }
 }
 function handleSpecialCaseTexture(itemName, data) {
-    const textureEntry = exports.typeIdTextureMap.get(itemName);
+    const textureEntry = typeIdTextureMap.get(itemName);
     if (typeof textureEntry === 'string') {
         return textureEntry;
     }
@@ -320,17 +292,17 @@ function handleSpecialCaseTexture(itemName, data) {
 }
 function findTextureInFiles(itemName) {
     let resultIcon;
-    glob_1.glob.sync("RP/textures/**/*.json").forEach((itemPath) => {
-        const item = JSON.parse((0, fs_1.readFileSync)(itemPath, "utf-8"));
+    glob.sync("RP/textures/**/*.json").forEach((itemPath) => {
+        const item = JSON.parse(readFileSync(itemPath, "utf-8"));
         if (item["minecraft:item"].description.identifier === itemName) {
             resultIcon = item["minecraft:item"].components["minecraft:icon"];
         }
     });
     if (resultIcon) {
-        const itemTextures = JSON.parse((0, fs_1.readFileSync)("RP/textures/item_texture.json", "utf-8"));
+        const itemTextures = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"));
         const texturePath = `RP/${itemTextures.texture_data[resultIcon].textures}.png`;
-        if ((0, fs_1.existsSync)(texturePath)) {
-            return (0, fs_1.readFileSync)(texturePath).toString(); // Assuming texture needs to be returned as string
+        if (existsSync(texturePath)) {
+            return readFileSync(texturePath).toString(); // Assuming texture needs to be returned as string
         }
         // Return an invalid texture image as a fallback
         return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAChJREFUCJltyqENACAMALAORRD8fydimRueUN3IXQ3rTDA8Ag256z8uTGEHATZy6pcAAAAASUVORK5CYII=";
