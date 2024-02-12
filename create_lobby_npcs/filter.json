@@ -2,8 +2,8 @@
     "filters": [
         {
             "runWith": "nodejs",
-            "script": "./dist/index.js",
-            "name": "Firework Rockets",
+            "script": "./dist/index.cjs",
+            "name": "create_lobby_npcs",
             "description": "filter desc",
             "requirements": "./"
         }
