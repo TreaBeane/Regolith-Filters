@@ -1,0 +1,1 @@
+"use strict";exports.id=522,exports.ids=[522],exports.modules={522:e=>{e.exports=JSON.parse('{"center_count":3,"npcs":{"fg:preston":{"texture":"textures/entity/preston","include_dialogue_box":true}}}')}};

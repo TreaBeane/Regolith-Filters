@@ -2,9 +2,11 @@
   "name": "create_lobby_npcs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.cjs",
+    "test": "cd .\\tests\\ && regolith run",
+    "build-test": "npm run build && npm run test"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,14 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "glob": "^7.2.0",
-    "typescript": "^4.5.5"
+    "node": "^21.6.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^4.5.5",
+    "webpack": "^5.90.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "webpack-cli": "^5.1.4"
   }
 }

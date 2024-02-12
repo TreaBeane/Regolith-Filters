@@ -1,0 +1,9 @@
+{
+    "center_count": 3,
+    "npcs": {
+        "fg:preston": {
+            "texture": "textures/entity/preston",
+            "include_dialogue_box": true
+        }
+    }
+}
