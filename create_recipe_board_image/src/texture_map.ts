@@ -292,7 +292,7 @@ export function getItemTexture(key: { item: string; data: number }) {
         const texture = findTextureInFiles(itemName);
         return texture || items['minecraft:stone'].texture; // Fallback to stone texture
     }
-    return items['minecraft:stone'].texture; // Fallback to stone texture
+    return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAABJJREFUOI1jYBgFo2AUjAIIAAAEEAABf014jgAAAABJRU5ErkJggg==' // Air
 }
 
 function handleSpawnEggTexture(itemName: string, data?: any): string | undefined {
