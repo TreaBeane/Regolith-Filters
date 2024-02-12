@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "firegames:ice_helmet",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": "ice_helmet",
+            "minecraft:render_offsets": "apple"
+        }
+    }
+}

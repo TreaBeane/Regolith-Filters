@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:water_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:water_helmet",
+        "firegames:water_chestplate",
+        "firegames:water_leggings",
+        "firegames:water_boots"
+      ],
+      "result": {
+          "item": "firegames:water_armor_set"
+      }
+  }
+}

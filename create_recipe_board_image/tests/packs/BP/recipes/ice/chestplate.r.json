@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:ice_chestplate"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "a a",
+        "aba",
+        "bab"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:ice"
+      },
+      "result": {
+          "item": "firegames:ice_chestplate"
+      }
+  }
+}

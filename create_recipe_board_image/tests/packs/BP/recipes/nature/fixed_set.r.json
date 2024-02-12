@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:nature_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:nature_helmet",
+        "b": "firegames:nature_chestplate",
+        "c": "firegames:nature_leggings",
+        "d": "firegames:nature_boots"
+      },
+      "result": {
+          "item": "firegames:nature_armor_set"
+      }
+  }
+}

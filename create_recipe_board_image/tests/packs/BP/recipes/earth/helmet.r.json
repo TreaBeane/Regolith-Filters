@@ -1,0 +1,22 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:earth_helmet"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "aba",
+        "a a"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:dirt"
+      },
+      "result": {
+          "item": "firegames:earth_helmet"
+      }
+  }
+}

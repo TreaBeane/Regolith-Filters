@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:ice_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:ice_helmet",
+        "b": "firegames:ice_chestplate",
+        "c": "firegames:ice_leggings",
+        "d": "firegames:ice_boots"
+      },
+      "result": {
+          "item": "firegames:ice_armor_set"
+      }
+  }
+}

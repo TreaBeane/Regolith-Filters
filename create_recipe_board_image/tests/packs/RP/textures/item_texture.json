@@ -1,0 +1,92 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "dev_item": {
+      "textures": "textures/items/dev_item"
+    },
+    "air_helmet": {
+      "textures": "textures/items/air_helmet"
+    },
+    "air_chestplate": {
+      "textures": "textures/items/air_chestplate"
+    },
+    "air_leggings": {
+      "textures": "textures/items/air_leggings"
+    },
+    "air_boots": {
+      "textures": "textures/items/air_boots"
+    },
+    "earth_helmet": {
+      "textures": "textures/items/earth_helmet"
+    },
+    "earth_chestplate": {
+      "textures": "textures/items/earth_chestplate"
+    },
+    "earth_leggings": {
+      "textures": "textures/items/earth_leggings"
+    },
+    "earth_boots": {
+      "textures": "textures/items/earth_boots"
+    },
+    "fire_helmet": {
+      "textures": "textures/items/fire_helmet"
+    },
+    "fire_chestplate": {
+      "textures": "textures/items/fire_chestplate"
+    },
+    "fire_leggings": {
+      "textures": "textures/items/fire_leggings"
+    },
+    "fire_boots": {
+      "textures": "textures/items/fire_boots"
+    },
+    "ice_helmet": {
+      "textures": "textures/items/ice_helmet"
+    },
+    "ice_chestplate": {
+      "textures": "textures/items/ice_chestplate"
+    },
+    "ice_leggings": {
+      "textures": "textures/items/ice_leggings"
+    },
+    "ice_boots": {
+      "textures": "textures/items/ice_boots"
+    },
+    "lightning_helmet": {
+      "textures": "textures/items/lightning_helmet"
+    },
+    "lightning_chestplate": {
+      "textures": "textures/items/lightning_chestplate"
+    },
+    "lightning_leggings": {
+      "textures": "textures/items/lightning_leggings"
+    },
+    "lightning_boots": {
+      "textures": "textures/items/lightning_boots"
+    },
+    "nature_helmet": {
+      "textures": "textures/items/nature_helmet"
+    },
+    "nature_chestplate": {
+      "textures": "textures/items/nature_chestplate"
+    },
+    "nature_leggings": {
+      "textures": "textures/items/nature_leggings"
+    },
+    "nature_boots": {
+      "textures": "textures/items/nature_boots"
+    },
+    "water_helmet": {
+      "textures": "textures/items/water_helmet"
+    },
+    "water_chestplate": {
+      "textures": "textures/items/water_chestplate"
+    },
+    "water_leggings": {
+      "textures": "textures/items/water_leggings"
+    },
+    "water_boots": {
+      "textures": "textures/items/water_boots"
+    }
+  }
+}

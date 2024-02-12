@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:fire_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:fire_helmet",
+        "b": "firegames:fire_chestplate",
+        "c": "firegames:fire_leggings",
+        "d": "firegames:fire_boots"
+      },
+      "result": {
+          "item": "firegames:fire_armor_set"
+      }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:lightning_leggings"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "aba",
+        "a a",
+        "b b"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:lightning_rod"
+      },
+      "result": {
+          "item": "firegames:lightning_leggings"
+      }
+  }
+}

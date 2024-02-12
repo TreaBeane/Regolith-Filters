@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:lightning_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:lightning_helmet",
+        "firegames:lightning_chestplate",
+        "firegames:lightning_leggings",
+        "firegames:lightning_boots"
+      ],
+      "result": {
+          "item": "firegames:lightning_armor_set"
+      }
+  }
+}

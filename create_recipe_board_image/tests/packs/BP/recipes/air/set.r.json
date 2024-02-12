@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:air_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:air_helmet",
+        "firegames:air_chestplate",
+        "firegames:air_leggings",
+        "firegames:air_boots"
+      ],
+      "result": {
+          "item": "firegames:air_armor_set"
+      }
+  }
+}

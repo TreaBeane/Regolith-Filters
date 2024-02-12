@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:ice_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:ice_helmet",
+        "firegames:ice_chestplate",
+        "firegames:ice_leggings",
+        "firegames:ice_boots"
+      ],
+      "result": {
+          "item": "firegames:ice_armor_set"
+      }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:nature_boots"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "a a",
+        "b b"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:bone_meal"
+      },
+      "result": {
+          "item": "firegames:nature_boots"
+      }
+  }
+}

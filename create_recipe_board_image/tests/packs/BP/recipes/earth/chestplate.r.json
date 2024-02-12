@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:earth_chestplate"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "a a",
+        "aba",
+        "bab"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:dirt"
+      },
+      "result": {
+          "item": "firegames:earth_chestplate"
+      }
+  }
+}

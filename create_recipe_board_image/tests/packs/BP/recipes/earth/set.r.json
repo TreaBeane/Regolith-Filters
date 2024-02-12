@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:earth_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:earth_helmet",
+        "firegames:earth_chestplate",
+        "firegames:earth_leggings",
+        "firegames:earth_boots"
+      ],
+      "result": {
+          "item": "firegames:earth_armor_set"
+      }
+  }
+}

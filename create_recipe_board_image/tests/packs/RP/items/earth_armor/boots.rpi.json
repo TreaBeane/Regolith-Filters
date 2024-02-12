@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "firegames:earth_boots",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": "earth_boots",
+            "minecraft:render_offsets": "apple"
+        }
+    }
+}

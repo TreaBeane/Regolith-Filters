@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "firegames:air_chestplate",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:icon": "air_chestplate",
+            "minecraft:render_offsets": "apple"
+        }
+    }
+}

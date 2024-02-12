@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:ice_leggings"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "aba",
+        "a a",
+        "b b"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:ice"
+      },
+      "result": {
+          "item": "firegames:ice_leggings"
+      }
+  }
+}

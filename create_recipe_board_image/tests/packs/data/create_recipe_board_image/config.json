@@ -1,9 +1,247 @@
 {
-    "fg:blazing_ember_sword": {
+    "fg:air_armor_set": {
         "output": [
-            "RP/textures/entity/hologram/blazing_ember_sword"
+            "RP/textures/entity/hologram/air_armor_set_recipe"
         ],
-        "recipe": "example.r.json",
-        "text": "Blazing Ember Sword"
+        "recipe": "air/fixed_set.r.json",
+        "text": "Air Armor Set"
+    },
+    "fg:air_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/air_helmet_recipe"
+        ],
+        "recipe": "air/helmet.r.json",
+        "text": "Air Helmet"
+    },
+    "fg:air_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/air_chestplate_recipe"
+        ],
+        "recipe": "air/chestplate.r.json",
+        "text": "Air Chestplate"
+    },
+    "fg:air_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/air_leggings_recipe"
+        ],
+        "recipe": "air/leggings.r.json",
+        "text": "Air Leggings"
+    },
+    "fg:air_boots": {
+        "output": [
+            "RP/textures/entity/hologram/air_boots_recipe"
+        ],
+        "recipe": "air/boots.r.json",
+        "text": "Air Boots"
+    },
+    "fg:earth_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/earth_armor_set_recipe"
+        ],
+        "recipe": "earth/fixed_set.r.json",
+        "text": "Earth Armor Set"
+    },
+    "fg:earth_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/earth_helmet_recipe"
+        ],
+        "recipe": "earth/helmet.r.json",
+        "text": "Earth Helmet"
+    },
+    "fg:earth_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/earth_chestplate_recipe"
+        ],
+        "recipe": "earth/chestplate.r.json",
+        "text": "Earth Chestplate"
+    },
+    "fg:earth_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/earth_leggings_recipe"
+        ],
+        "recipe": "earth/leggings.r.json",
+        "text": "Earth Leggings"
+    },
+    "fg:earth_boots": {
+        "output": [
+            "RP/textures/entity/hologram/earth_boots_recipe"
+        ],
+        "recipe": "earth/boots.r.json",
+        "text": "Earth Boots"
+    },
+    "fg:fire_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/fire_armor_set_recipe"
+        ],
+        "recipe": "fire/fixed_set.r.json",
+        "text": "Fire Armor Set"
+    },
+    "fg:fire_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/fire_helmet_recipe"
+        ],
+        "recipe": "fire/helmet.r.json",
+        "text": "Fire Helmet"
+    },
+    "fg:fire_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/fire_chestplate_recipe"
+        ],
+        "recipe": "fire/chestplate.r.json",
+        "text": "Fire Chestplate"
+    },
+    "fg:fire_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/fire_leggings_recipe"
+        ],
+        "recipe": "fire/leggings.r.json",
+        "text": "Fire Leggings"
+    },
+    "fg:fire_boots": {
+        "output": [
+            "RP/textures/entity/hologram/fire_boots_recipe"
+        ],
+        "recipe": "fire/boots.r.json",
+        "text": "Fire Boots"
+    },
+    "fg:ice_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/ice_armor_set_recipe"
+        ],
+        "recipe": "ice/fixed_set.r.json",
+        "text": "Ice Armor Set"
+    },
+    "fg:ice_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/ice_helmet_recipe"
+        ],
+        "recipe": "ice/helmet.r.json",
+        "text": "Ice Helmet"
+    },
+    "fg:ice_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/ice_chestplate_recipe"
+        ],
+        "recipe": "ice/chestplate.r.json",
+        "text": "Ice Chestplate"
+    },
+    "fg:ice_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/ice_leggings_recipe"
+        ],
+        "recipe": "ice/leggings.r.json",
+        "text": "Ice Leggings"
+    },
+    "fg:ice_boots": {
+        "output": [
+            "RP/textures/entity/hologram/ice_boots_recipe"
+        ],
+        "recipe": "ice/boots.r.json",
+        "text": "Ice Boots"
+    },
+    "fg:lightning_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/lightning_armor_set_recipe"
+        ],
+        "recipe": "lightning/fixed_set.r.json",
+        "text": "Lightning Armor Set"
+    },
+    "fg:lightning_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/lightning_helmet_recipe"
+        ],
+        "recipe": "lightning/helmet.r.json",
+        "text": "Lightning Helmet"
+    },
+    "fg:lightning_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/lightning_chestplate_recipe"
+        ],
+        "recipe": "lightning/chestplate.r.json",
+        "text": "Lightning Chestplate"
+    },
+    "fg:lightning_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/lightning_leggings_recipe"
+        ],
+        "recipe": "lightning/leggings.r.json",
+        "text": "Lightning Leggings"
+    },
+    "fg:lightning_boots": {
+        "output": [
+            "RP/textures/entity/hologram/lightning_boots_recipe"
+        ],
+        "recipe": "lightning/boots.r.json",
+        "text": "Lightning Boots"
+    },
+    "fg:nature_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/nature_armor_set_recipe"
+        ],
+        "recipe": "nature/fixed_set.r.json",
+        "text": "Nature Armor Set"
+    },
+    "fg:nature_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/nature_helmet_recipe"
+        ],
+        "recipe": "nature/helmet.r.json",
+        "text": "Nature Helmet"
+    },
+    "fg:nature_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/nature_chestplate_recipe"
+        ],
+        "recipe": "nature/chestplate.r.json",
+        "text": "Nature Chestplate"
+    },
+    "fg:nature_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/nature_leggings_recipe"
+        ],
+        "recipe": "nature/leggings.r.json",
+        "text": "Nature Leggings"
+    },
+    "fg:nature_boots": {
+        "output": [
+            "RP/textures/entity/hologram/nature_boots_recipe"
+        ],
+        "recipe": "nature/boots.r.json",
+        "text": "Nature Boots"
+    },
+    "fg:water_armor_set": {
+        "output": [
+            "RP/textures/entity/hologram/water_armor_set_recipe"
+        ],
+        "recipe": "water/fixed_set.r.json",
+        "text": "Water Armor Set"
+    },
+    "fg:water_helmet": {
+        "output": [
+            "RP/textures/entity/hologram/water_helmet_recipe"
+        ],
+        "recipe": "water/helmet.r.json",
+        "text": "Water Helmet"
+    },
+    "fg:water_chestplate": {
+        "output": [
+            "RP/textures/entity/hologram/water_chestplate_recipe"
+        ],
+        "recipe": "water/chestplate.r.json",
+        "text": "Water Chestplate"
+    },
+    "fg:water_leggings": {
+        "output": [
+            "RP/textures/entity/hologram/water_leggings_recipe"
+        ],
+        "recipe": "water/leggings.r.json",
+        "text": "Water Leggings"
+    },
+    "fg:water_boots": {
+        "output": [
+            "RP/textures/entity/hologram/water_boots_recipe"
+        ],
+        "recipe": "water/boots.r.json",
+        "text": "Water Boots"
     }
 }

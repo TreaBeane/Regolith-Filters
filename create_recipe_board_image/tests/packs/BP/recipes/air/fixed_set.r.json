@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:air_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:air_helmet",
+        "b": "firegames:air_chestplate",
+        "c": "firegames:air_leggings",
+        "d": "firegames:air_boots"
+      },
+      "result": {
+          "item": "firegames:air_armor_set"
+      }
+  }
+}

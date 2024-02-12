@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:water_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:water_helmet",
+        "b": "firegames:water_chestplate",
+        "c": "firegames:water_leggings",
+        "d": "firegames:water_boots"
+      },
+      "result": {
+          "item": "firegames:water_armor_set"
+      }
+  }
+}

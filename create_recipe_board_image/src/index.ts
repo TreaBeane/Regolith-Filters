@@ -11,10 +11,7 @@ async function run() {
     const config = JSON.parse(readFileSync('data/create_recipe_board_image/config.json', 'utf-8')) as any;
     const configKeys = Object.keys(config);
 
-    console.log('> Creating recipe images!');
-
     for (const key of configKeys) {
-        console.log('   - ' + key);
         const recipeBoardImage = new Canvas.Image();
         recipeBoardImage.src = RECIPE_BOARD_IMAGE;
 
@@ -22,14 +19,14 @@ async function run() {
         const recipe = JSON.parse(readFileSync('BP/recipes/' + recipeData.recipe, 'utf-8')) ?? {};
 
         if ('minecraft:recipe_shaped' in recipe) {
-            await drawShapedRecipe(recipeData, recipe, fonts)
+            await drawShapedRecipe(key, recipeData, recipe, fonts)
         }
     }
 
     return 'done!'
 }
 
-async function drawShapedRecipe(recipeData: recipeData, recipe: any, fonts: any) {
+async function drawShapedRecipe(key: string, recipeData: recipeData, recipe: any, fonts: any) {
     const shapedRecipe: shapedRecipe = recipe['minecraft:recipe_shaped'];
 
     var canvas = new Canvas.Canvas(1356, 586);
@@ -41,7 +38,6 @@ async function drawShapedRecipe(recipeData: recipeData, recipe: any, fonts: any)
             recipeImage.onload = function () {
                 ctx.drawImage(recipeImage, 0, 0);
                 resolve()
-                console.log('test')
             }
             recipeImage.onerror = reject
             recipeImage.src = RECIPE_BOARD_IMAGE;
@@ -85,7 +81,7 @@ async function drawShapedRecipe(recipeData: recipeData, recipe: any, fonts: any)
         var offY = 132;
 
         if (shapedRecipe.pattern.length !== 3) {
-            offY = 232;
+            offY = 271;
         }
 
         for (const row of shapedRecipe.pattern) {
@@ -189,10 +185,9 @@ async function drawShapedRecipe(recipeData: recipeData, recipe: any, fonts: any)
         if (!out.includes('.png')) {
             out += '.png'
         }
-        console.log('   > Writing to: ' + out);
+        console.log(`creating ${key} board -> ${out}`)
         writeFileSyncRecursive(out, buffer)
     });
-    console.log()
 }
 
 function writeFileSyncRecursive(filename: string, content: any) {

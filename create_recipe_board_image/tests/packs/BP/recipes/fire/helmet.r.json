@@ -1,0 +1,22 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:fire_helmet"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "aba",
+        "a a"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:blaze_powder"
+      },
+      "result": {
+          "item": "firegames:fire_helmet"
+      }
+  }
+}

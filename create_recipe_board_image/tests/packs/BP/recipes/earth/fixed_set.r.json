@@ -1,0 +1,24 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:earth_armor_set.fixed"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "ab",
+        "cd"
+      ],
+      "key": {
+        "a": "firegames:earth_helmet",
+        "b": "firegames:earth_chestplate",
+        "c": "firegames:earth_leggings",
+        "d": "firegames:earth_boots"
+      },
+      "result": {
+          "item": "firegames:earth_armor_set"
+      }
+  }
+}

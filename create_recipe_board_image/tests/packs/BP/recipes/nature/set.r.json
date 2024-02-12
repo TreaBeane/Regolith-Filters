@@ -1,0 +1,20 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shapeless": {
+      "description": {
+          "identifier": "firegames:nature_armor_set"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "ingredients": [
+        "firegames:nature_helmet",
+        "firegames:nature_chestplate",
+        "firegames:nature_leggings",
+        "firegames:nature_boots"
+      ],
+      "result": {
+          "item": "firegames:nature_armor_set"
+      }
+  }
+}

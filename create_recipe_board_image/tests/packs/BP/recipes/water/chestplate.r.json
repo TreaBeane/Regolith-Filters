@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:recipe_shaped": {
+      "description": {
+          "identifier": "firegames:water_chestplate"
+      },
+      "tags": [
+          "crafting_table"
+      ],
+      "pattern": [
+        "a a",
+        "aba",
+        "bab"
+      ],
+      "key": {
+        "a": "minecraft:iron_ingot",
+        "b": "minecraft:water_bucket"
+      },
+      "result": {
+          "item": "firegames:water_chestplate"
+      }
+  }
+}

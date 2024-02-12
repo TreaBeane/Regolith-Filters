@@ -266,31 +266,33 @@ export const typeIdTextureMap = new Map<string, (string | string[])>([
 ])
 
 export function getItemTexture(key: { item: string; data: number }) {
-
-    if (typeof(key) === 'string') {
-        key = parseItemFromString(key)
+    if (key !== undefined) {
+        if (typeof(key) === 'string') {
+            key = parseItemFromString(key)
+        }
+    
+        let itemName = key.item.includes(':') ? key.item : `minecraft:${key.item}`;
+    
+        // Handle spawn egg textures
+        if (itemName.includes("spawn_egg")) {
+            return handleSpawnEggTexture(itemName, key.data);
+        }
+    
+        // Handle special cases with multiple possible textures
+        if (typeIdTextureMap.has(itemName)) {
+            return handleSpecialCaseTexture(itemName, key.data);
+        }
+    
+        // Default texture lookup
+        if (items[itemName]) {
+            return items[itemName].texture;
+        }
+    
+        // Attempt to find the texture from file if not predefined
+        const texture = findTextureInFiles(itemName);
+        return texture || items['minecraft:stone'].texture; // Fallback to stone texture
     }
-
-    let itemName = key.item.includes(':') ? key.item : `minecraft:${key.item}`;
-
-    // Handle spawn egg textures
-    if (itemName.includes("spawn_egg")) {
-        return handleSpawnEggTexture(itemName, key.data);
-    }
-
-    // Handle special cases with multiple possible textures
-    if (typeIdTextureMap.has(itemName)) {
-        return handleSpecialCaseTexture(itemName, key.data);
-    }
-
-    // Default texture lookup
-    if (items[itemName]) {
-        return items[itemName].texture;
-    }
-
-    // Attempt to find the texture from file if not predefined
-    const texture = findTextureInFiles(itemName);
-    return texture || items['minecraft:stone'].texture; // Fallback to stone texture
+    return items['minecraft:stone'].texture; // Fallback to stone texture
 }
 
 function handleSpawnEggTexture(itemName: string, data?: any): string | undefined {
@@ -316,9 +318,9 @@ function handleSpecialCaseTexture(itemName: string, data?: number): string {
 function findTextureInFiles(itemName: string): string | undefined {
     if (existsSync('RP/textures/item_texture.json')){
         let resultIcon: string | undefined;
-        glob.sync("RP/textures/**/*.json").forEach((itemPath) => {
+        glob.sync("RP/items/**/*.json").forEach((itemPath) => {
             const item = JSON.parse(readFileSync(itemPath, "utf-8"));
-            if (item["minecraft:item"].description.identifier === itemName) {
+            if ('minecraft:item' in item && item["minecraft:item"].description.identifier === itemName) {
                 resultIcon = item["minecraft:item"].components["minecraft:icon"];
             }
         });
@@ -327,7 +329,8 @@ function findTextureInFiles(itemName: string): string | undefined {
             const itemTextures = JSON.parse(readFileSync("RP/textures/item_texture.json", "utf-8"));
             const texturePath = `RP/${itemTextures.texture_data[resultIcon].textures}.png`;
             if (existsSync(texturePath)) {
-                return readFileSync(texturePath).toString(); // Assuming texture needs to be returned as string
+                const data = readFileSync(texturePath).toString('base64')
+                return `data:image/png;base64,${data}`; // Assuming texture needs to be returned as string
             }
         }}
     // Return an invalid texture image as a fallback
